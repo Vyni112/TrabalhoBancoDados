@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="startScreen" class="container-fluid d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="content text-center">
+      <h1 class="mb-4">Login</h1>
+      <form id="cadastroForm" action="login.php" method="POST" class="needs-validation" novalidate>
+        <div class="form-group">
+          <label for="usernameInput">User Name</label>
+          <input type="text" id="usernameInput" name="username" class="form-control" placeholder="Insira seu User Name" required>
+          <div class="invalid-feedback">Por favor, insira seu User Name.</div>
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
+          <div class="invalid-feedback">Por favor, insira sua senha.</div>
+        </div>
+        <button type="submit" id="startBtn" class="btn btn-primary btn-lg btn-block">Entrar</button>
+      </form>
+      <button id="cadastro" class="btn btn-secondary btn-lg mt-3"><a href="cadastro.php" class="text-white">Faça seu cadastro aqui!</a></button>
+    </div>
+  </div>
+
+
+  <script>
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+</body>
+</html>
